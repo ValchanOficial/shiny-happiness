@@ -13,6 +13,6 @@ public class AppTest
 	               "0, 0, 0",
 	               "2, 0, 2"})
 	  public void paramTeste(int a, int b, int r) throws Exception {
-		assertEquals(r, a+b);
+		assertEquals(r, App.somar(a, b));
 	  }
 }
