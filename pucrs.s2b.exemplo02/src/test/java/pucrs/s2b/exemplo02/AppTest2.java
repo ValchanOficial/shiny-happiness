@@ -2,7 +2,6 @@ package pucrs.s2b.exemplo02;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import junitparams.FileParameters;
 import junitparams.JUnitParamsRunner;
 
