@@ -12,7 +12,7 @@ public class AppTest
 	  @Parameters({"20, 30, 50", 
 	               "0, 0, 0",
 	               "2, 0, 2"})
-	  public void paramTeste(int a, int b, int r) throws Exception {
+	  public void paramTesteLista(int a, int b, int r) throws Exception {
 		assertEquals(r, App.somar(a, b));
 	  }
 }
