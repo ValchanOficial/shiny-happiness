@@ -10,78 +10,37 @@
   <name>exemplo02</name>
   <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  
-  		<plugins>
-            
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>package-sources</id>
-                            <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.4</version>
-                    <executions>
-                        <execution>
-                            <id>package-javadoc</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                         </execution>
-                    </executions>
-            </plugin>
-            
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.8</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>deploy-to-sonatype</id>
-                            <phase>deploy</phase>
-                            <goals>
-                                <goal>deploy</goal>
-                                <goal>release</goal>
-                            </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-		
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-    
-  <dependency>
-  	<groupId>pl.pragmatists</groupId>
-  	<artifactId>JUnitParams</artifactId>
-  	<version>1.1.1</version>
-  	<scope>test</scope>
-	</dependency>
-  </dependencies>
+ <properties>
+		<junit.version>4.12</junit.version>
+		<junit.params.version>1.1.1</junit.params.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Dependencia para usar arquivos CSV como massa de dados -->
+		<dependency>
+			<groupId>pl.pragmatists</groupId>
+			<artifactId>JUnitParams</artifactId>
+			<version>${junit.params.version}</version>
+		</dependency>
+	</dependencies>
+
+	<!--  Par execucao dos testes via POM ou linha de comando pelo Manven -->
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.20.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>
